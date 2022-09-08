@@ -18,7 +18,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: fieldnation-runner-ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -35,7 +35,7 @@ jobs:
         uses: ./
 
   generate:
-    runs-on: ubuntu-latest
+    runs-on: fieldnation-runner-ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:

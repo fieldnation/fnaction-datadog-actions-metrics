@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: fieldnation-runner-ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 `

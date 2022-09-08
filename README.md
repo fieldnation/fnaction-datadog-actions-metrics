@@ -20,7 +20,7 @@ on:
 
 jobs:
   send:
-    runs-on: ubuntu-latest
+    runs-on: fieldnation-runner-ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: int128/datadog-actions-metrics@v1
@@ -68,7 +68,7 @@ on:
 
 jobs:
   send:
-    runs-on: ubuntu-latest
+    runs-on: fieldnation-runner-ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: int128/datadog-actions-metrics@v1
@@ -156,7 +156,7 @@ It has the following tags:
 - `status`
 - `runs_on`
   - Runner label inferred from the workflow file if available
-  - e.g. `ubuntu-latest`
+  - e.g. `fieldnation-runner-ubuntu-latest`
 
 
 ### Step
@@ -188,7 +188,7 @@ It has the following tags:
 - `status`
 - `runs_on`
   - Runner label inferred from the workflow file if available
-  - e.g. `ubuntu-latest`
+  - e.g. `fieldnation-runner-ubuntu-latest`
 
 
 ### Enable job and step metrics

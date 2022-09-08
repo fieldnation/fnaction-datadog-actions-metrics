@@ -4,12 +4,12 @@ test('parseWorkflowFile', () => {
   const workflowDefinition = parseWorkflowFile(`
 jobs:
   ts:
-    runs-on: ubuntu-latest
+    runs-on: fieldnation-runner-ubuntu-latest
 `)
   expect(workflowDefinition).toStrictEqual<WorkflowDefinition>({
     jobs: {
       ts: {
-        'runs-on': 'ubuntu-latest',
+        'runs-on': 'fieldnation-runner-ubuntu-latest',
       },
     },
   })
@@ -19,18 +19,18 @@ describe('inferRunner looks up a key', () => {
   const workflowDefinition: WorkflowDefinition = {
     jobs: {
       ts: {
-        'runs-on': 'ubuntu-latest',
+        'runs-on': 'fieldnation-runner-ubuntu-latest',
       },
     },
   }
 
   test('simple name', () => {
     const runner = inferRunner('ts', workflowDefinition)
-    expect(runner).toBe('ubuntu-latest')
+    expect(runner).toBe('fieldnation-runner-ubuntu-latest')
   })
   test('matrix job name', () => {
     const runner = inferRunner('ts (1, 2, 3)', workflowDefinition)
-    expect(runner).toBe('ubuntu-latest')
+    expect(runner).toBe('fieldnation-runner-ubuntu-latest')
   })
   test('not found', () => {
     const runner = inferRunner('foo', workflowDefinition)
@@ -43,18 +43,18 @@ describe('inferRunner looks up name property', () => {
     jobs: {
       ts: {
         name: 'typescript build',
-        'runs-on': 'ubuntu-latest',
+        'runs-on': 'fieldnation-runner-ubuntu-latest',
       },
     },
   }
 
   test('simple name', () => {
     const runner = inferRunner('typescript build', workflowDefinition)
-    expect(runner).toBe('ubuntu-latest')
+    expect(runner).toBe('fieldnation-runner-ubuntu-latest')
   })
   test('matrix job name', () => {
     const runner = inferRunner('typescript build (1, 2, 3)', workflowDefinition)
-    expect(runner).toBe('ubuntu-latest')
+    expect(runner).toBe('fieldnation-runner-ubuntu-latest')
   })
   test('not found', () => {
     const runner = inferRunner('foo', workflowDefinition)
@@ -70,7 +70,7 @@ describe('inferRunner looks up name with expression', () => {
         'runs-on': 'self-hosted',
       },
       bar: {
-        'runs-on': 'ubuntu-latest',
+        'runs-on': 'fieldnation-runner-ubuntu-latest',
       },
     },
   }

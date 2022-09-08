@@ -12,7 +12,7 @@ import { exampleWorkflowRunEvent } from './fixtures/workflowRunEvent'
 const exampleWorkflowDefinition: WorkflowDefinition = {
   jobs: {
     build: {
-      'runs-on': 'ubuntu-latest',
+      'runs-on': 'fieldnation-runner-ubuntu-latest',
     },
   },
 }
